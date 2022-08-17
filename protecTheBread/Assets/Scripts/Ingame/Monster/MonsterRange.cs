@@ -82,11 +82,12 @@ public class MonsterRange : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Knight")
         {
             unitList.Remove(other.GetComponent<FriendlyUnit>());
-            
-            if (unitList.Count == 0)
-            {
+
+            if(enemy.attackTarget == other.transform)
                 enemy.attackTarget = null;
 
+            if (unitList.Count == 0)
+            {
                 enemy.animator.SetBool("RightAttack", false);
                 enemy.animator.SetBool("LeftAttack", false);
                 enemy.isChase = false;

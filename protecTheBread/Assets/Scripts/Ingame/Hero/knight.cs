@@ -45,15 +45,11 @@ public class knight : FriendlyUnit
         get { return knightHPnow; }
         set
         {
-           if (value < 0)
-                value = 0;
-
             knightHPnow = value;
 
             if (isBarrackSpawn && !isBarrackSpawnDead && knightHPnow <= 0)
             {
                 isBarrackSpawnDead = true;
-                knightHPnow = value;
                 DestroyKnight();
                 barrackKnightSpawn.SpawnKnightStart(index,10f);
             }

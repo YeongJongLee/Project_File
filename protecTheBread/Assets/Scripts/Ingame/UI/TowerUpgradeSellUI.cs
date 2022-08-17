@@ -11,6 +11,11 @@ public class TowerUpgradeSellUI : MonoBehaviour
     private bool[]          isCheck;                // 타워 선택시 한번 더 확인
 
     [SerializeField]
+    private GameObject      towerInfo;              // 타워선택창 가운데 타워정보텍스트
+    [SerializeField]
+    private Text[]          towerInfoText;          // 타워정보(UI) [0-타워이름, 1-타워설명, 2-공격력, 3-공속, 4-공격사거리, 5-골드]
+
+    [SerializeField]
     private GameObject      knightMoveUI;
     private Ground          ground;                 // 선택한 땅 정보
     private Tower           builtTower;
@@ -77,6 +82,16 @@ public class TowerUpgradeSellUI : MonoBehaviour
 
             isCheck[selectNum] = true;                      // 선택된 Index만 true               
             checkButton[selectNum].SetActive(true);         // 선택된 Index만 체크표시
+
+            if (funcNum == FuncNum.Upgrade)
+            {
+                towerInfo.SetActive(true);
+                TowerInfoText((int)builtTower.GetTowerType());
+            }
+            else
+            {
+                towerInfo.SetActive(false);
+            }
         }
     }
 
@@ -116,7 +131,47 @@ public class TowerUpgradeSellUI : MonoBehaviour
     {
         isActiveTowerUpSellUI = false;
         gameObject.SetActive(false);
-        //if (builtTower is BarrackTower)  // test
-        //    builtTower.GetComponentInChildren<BarrackKnightSpawn>().OffKnightMove();
+        towerInfo.SetActive(false);
+    }
+
+    //[0-타워이름, 1-타워설명, 2-공격력, 3-공속, 4-공격사거리, 5-골드]
+    private void TowerInfoText(int towerType)
+    {
+        if (towerType == (int)TowerType.Barrack)
+        {
+            towerInfoText[0].text = builtTower.TowerName;
+            towerInfoText[1].text = "LV."+builtTower.TowerLevel.ToString();
+            towerInfoText[2].text = (builtTower.Damage * 150 / 100).ToString();
+            towerInfoText[3].text = "느림";
+            towerInfoText[4].text = "근거리";
+            towerInfoText[5].text = builtTower.UpgradeCost.ToString();
+        }
+        else if (towerType == (int)TowerType.Archer)
+        {
+            towerInfoText[0].text = builtTower.TowerName;
+            towerInfoText[1].text = "LV." + builtTower.TowerLevel.ToString();
+            towerInfoText[2].text = (builtTower.Damage * 150 / 100).ToString();
+            towerInfoText[3].text = "빠름";
+            towerInfoText[4].text = "중거리";
+            towerInfoText[5].text = builtTower.UpgradeCost.ToString();
+        }
+        else if (towerType == (int)TowerType.Catapult)
+        {
+            towerInfoText[0].text = builtTower.TowerName;
+            towerInfoText[1].text = "LV." + builtTower.TowerLevel.ToString();
+            towerInfoText[2].text = (builtTower.Damage * 150 / 100).ToString();
+            towerInfoText[3].text = "매우 느림";
+            towerInfoText[4].text = "장거리";
+            towerInfoText[5].text = builtTower.UpgradeCost.ToString();
+        }
+        else if (towerType == (int)TowerType.Wizard)
+        {
+            towerInfoText[0].text = builtTower.TowerName;
+            towerInfoText[1].text = "LV." + builtTower.TowerLevel.ToString();
+            towerInfoText[2].text = (builtTower.Damage * 150 / 100).ToString();
+            towerInfoText[3].text = "보통";
+            towerInfoText[4].text = "중거리";
+            towerInfoText[5].text = builtTower.UpgradeCost.ToString();
+        }
     }
 }

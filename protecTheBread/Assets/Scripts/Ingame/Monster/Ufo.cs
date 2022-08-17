@@ -46,7 +46,7 @@ public class Ufo : MonoBehaviour
 
     IEnumerator TimeDie()
     {
-        yield return new WaitForSeconds(33);
+        yield return new WaitForSeconds(25);
 
         Destroy(gameObject);
     }

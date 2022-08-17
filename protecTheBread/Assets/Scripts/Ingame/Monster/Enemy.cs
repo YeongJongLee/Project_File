@@ -44,7 +44,13 @@ public class Enemy : MonoBehaviour
     bool isDie = false;
     bool isGoal = true;
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Respawn")
+        {
+            enemySpawn.DestoryEnemy(this);
+        }
+    }
     public int Lifedamage
     {
         set
@@ -260,6 +266,8 @@ public class Enemy : MonoBehaviour
         {
             if (isGoal)
             {
+                Destroy(hpBar.gameObject);
+                Collider2D.enabled = false;
                 inGameManager.Life -= lifedamage;
                 enemySpawn.DestoryEnemy(this);
                 isGoal = false;

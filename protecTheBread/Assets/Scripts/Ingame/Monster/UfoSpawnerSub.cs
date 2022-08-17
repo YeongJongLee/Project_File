@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UfoSpawnerSub : MonoBehaviour
 {
-    public GameObject ufo; 
+    public GameObject ufo;
     BoxCollider2D rangeCollider;
     // Start is called before the first frame update
     void Awake()

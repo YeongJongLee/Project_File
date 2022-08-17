@@ -99,16 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe5b18af37b45045a91dacf941c57b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nowHp: 2200
-  maxHp: 2200
-  atk: 35
+  nowHp: 3000
+  maxHp: 3000
+  atk: 30
   exp: 25
   gold: 25
   diamond: 20
   prefHpBar: {fileID: 3730256825448817761, guid: 2ddf03b5c3c3267498151e9409ba56d9, type: 3}
   canvas: {fileID: 0}
   dropText: {fileID: 1461717581022517029, guid: 182ac0c035540054793e9f5f281ccdeb, type: 3}
-  dropImage: {fileID: 0}
+  dropImage: {fileID: 3353260689072304088, guid: 406acc9b7f175d1469e372c91da04f46, type: 3}
   inGameManager: {fileID: 0}
   attackTarget: {fileID: 0}
   animator: {fileID: 3573288474369571327}

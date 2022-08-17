@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe5b18af37b45045a91dacf941c57b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nowHp: 180
-  maxHp: 180
-  atk: 7
+  nowHp: 200
+  maxHp: 200
+  atk: 10
   exp: 15
   gold: 8
   diamond: 5
